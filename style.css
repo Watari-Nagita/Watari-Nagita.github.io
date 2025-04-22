@@ -18,6 +18,8 @@ body {
   padding-bottom: 0.5rem;
   margin: 2rem auto 1.5rem;
   text-align: center;
+  opacity: 0;
+  animation: fadeInLogo 2s ease-out forwards;
 }
 
 .intro {
@@ -25,6 +27,8 @@ body {
   max-width: 600px;
   margin: 0 auto 2rem;
   font-size: 1rem;
+  opacity: 0;
+  animation: fadeInIntro 2s ease-out 1.5s forwards;
 }
 
 nav {
@@ -53,6 +57,7 @@ body.entrance {
   align-items: center;
   height: 100vh;
   background: #fdfdfc;
+  position: relative;
 }
 
 .start-logo {
@@ -60,6 +65,8 @@ body.entrance {
   font-size: 4rem;
   color: #b59b72;
   margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInLogo 2s ease-out 1s forwards;
 }
 
 .enter-button {
@@ -70,8 +77,56 @@ body.entrance {
   border-radius: 30px;
   text-decoration: none;
   transition: background 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: enterFade 2s 1.5s forwards;
 }
 
 .enter-button:hover {
   background: #a08964;
+}
+
+@keyframes enterFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLogo {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInIntro {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 波紋背景 */
+.background-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 60%);
+  animation: waveAnimation 5s ease-in-out infinite;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
 }
